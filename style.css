@@ -1,0 +1,26 @@
+:root{--blue:#0b61ff;--white:#ffffff;--muted:#6b7280}
+*{box-sizing:border-box}body{font-family:Inter,system-ui,Arial,sans-serif;margin:0;background:#f5f8ff;color:#0a2540}
+.wrap{max-width:1100px;margin:0 auto;padding:16px}
+.site-header{background:linear-gradient(90deg,var(--blue),#2b8bff);color:var(--white);position:sticky;top:0;z-index:50}
+.header-inner{display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.logo-img{height:56px;border-radius:8px}
+.brand-text{line-height:1}
+.slogan{font-size:12px;color:rgba(255,255,255,0.9)}
+.nav a{color:rgba(234,242,255,0.95);text-decoration:none;margin:0 8px;font-weight:600}
+.btn{background:var(--white);color:var(--blue);padding:8px 12px;border-radius:8px;border:none;cursor:pointer}
+.secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.15);padding:8px 12px;border-radius:8px}
+.hero{padding:48px 0;text-align:left}
+.lead{color:var(--muted)}
+.card{background:#fff;padding:16px;border-radius:12px;box-shadow:0 6px 20px rgba(10,20,40,0.06);margin-bottom:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.form input,.form textarea,.form select{width:100%;padding:10px;margin-bottom:8px;border:1px solid #e6eef8;border-radius:8px}
+.sellers .small{color:var(--muted)}
+.site-footer{background:#021026;color:#cfe6ff;padding:16px;margin-top:30px}
+.socials a{color:#cfe6ff;margin-left:8px;text-decoration:none}
+.chat-ney{position:fixed;right:18px;bottom:18px;width:320px;border-radius:12px;box-shadow:0 10px 30px rgba(2,6,23,0.12);overflow:hidden;background:#fff}
+.chat-ney.closed{height:56px;width:56px;border-radius:50%;right:16px;bottom:16px}
+.chat-header{background:var(--blue);color:#fff;padding:12px}
+.chat-body{height:220px;overflow:auto;padding:12px}
+.chat-input{display:flex;padding:8px;border-top:1px solid #eee}
+.chat-input input{flex:1;padding:8px;border:1px solid #ddd;border-radius:6px}

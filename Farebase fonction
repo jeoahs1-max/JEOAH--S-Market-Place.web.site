@@ -1,0 +1,40 @@
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp();
+const db = admin.firestore();
+
+// Claim free slot - atomic via transaction
+exports.claimFreeSlot = functions.https.onCall(async (data, context) => {
+  const email = data.email;
+  if(!email) throw new functions.https.HttpsError('invalid-argument','Email required');
+  const settingsRef = db.doc('settings/general');
+  return db.runTransaction(async (tx) => {
+    const settings = await tx.get(settingsRef);
+    let used = settings.exists && settings.data().freeUsed || 0;
+    const total = settings.exists && settings.data().freeTotal || 20;
+    if(used >= total) throw new functions.https.HttpsError('resource-exhausted','No free slots');
+    used += 1;
+    tx.set(settingsRef, { freeTotal: total, freeUsed: used }, { merge: true });
+    const userRef = db.collection('users').doc();
+    tx.set(userRef, { email, plan:'trial', trialStarts: admin.firestore.FieldValue.serverTimestamp(), trialEnds: admin.firestore.Timestamp.fromDate(new Date(Date.now()+15*24*3600*1000)) });
+    return { ok:true, trialEnds: Date.now() + 15*24*3600*1000 };
+  });
+});
+
+// Request payout (mock) - in prod use Stripe Connect / PayPal Payouts
+exports.requestPayout = functions.https.onCall(async (data, context) => {
+  if(!context.auth) throw new functions.https.HttpsError('unauthenticated','Must be signed in');
+  const { vendorId, amount, method } = data;
+  const payoutRef = await db.collection('payouts').add({ vendorId, amount, method, status:'pending', createdAt: admin.firestore.FieldValue.serverTimestamp() });
+  return { id: payoutRef.id };
+});
+
+// Cron to check trials (to be scheduled)
+exports.checkTrials = functions.pubsub.schedule('every 24 hours').onRun(async (context) => {
+  const now = admin.firestore.Timestamp.now();
+  const snaps = await db.collection('users').where('plan','==','trial').where('trialEnds','<=', now).get();
+  for(const doc of snaps.docs){
+    await doc.ref.update({ plan:'free' });
+  }
+  return { processed: snaps.size };
+});

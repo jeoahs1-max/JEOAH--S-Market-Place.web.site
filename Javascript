@@ -1,0 +1,15 @@
+/* App JS - placeholders for Ney chat, language toggle, trial count */
+function setLang(){ /* placeholder for multi-language */ }
+document.addEventListener('DOMContentLoaded', function(){
+  // sample free slots counter (replace with server API)
+  const counter = document.getElementById('freeSlotsCounter');
+  if(counter) counter.innerText = '20 / 20';
+  // cookie handling
+  const consent = localStorage.getItem('jeoahs_ga_consent');
+  if(!consent){
+    const c = document.getElementById('cookie-consent');
+    if(c) c.style.display='flex';
+  }
+});
+function openChat(){ document.getElementById('chatBox').style.display='block'; }
+function closeChat(){ document.getElementById('chatBox').style.display='none'; }
