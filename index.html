@@ -1,137 +1,85 @@
 <!doctype html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>JEOAH'S Market Place — Le shopping le plus intelligent</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ47QM0FJZ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-PZ47QM0FJZ');
-  </script>
-  <link rel="manifest" href="/manifest.json" />
-  <meta name="theme-color" content="#1e3a8a"/>
-  <link rel="icon" href="/assets/favicon.png" />
-  <link rel="stylesheet" href="/styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>JEOAH'S Market Place — Le shopping le plus intelligent</title>
+<link rel="manifest" href="/manifest.json" />
+<link rel="stylesheet" href="/styles.min.css" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PZ47QM0FJZ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-PZ47QM0FJZ');</script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">JEOAH'S</div>
-      <nav class="nav">
-        <a href="#home">Accueil</a>
-        <a href="#vendors">Vendeurs</a>
-        <a href="#pricing">Abonnements</a>
-        <a href="#help">FAQ</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="cta" href="#get-started">Get Started</a>
+<header class="site-header">
+  <div class="container header-row">
+    <div class="logo"><img src="/assets/logo.png" alt="JEOAH'S" style="height:44px"></div>
+    <nav class="nav">
+      <a href="/index.html">Accueil</a>
+      <a href="/inscription.html">Inscription</a>
+      <a href="/plans.html">Plans</a>
+      <a href="/faq.html">FAQ</a>
+    </nav>
+    <a class="cta" href="/inscription.html">Commencer</a>
+  </div>
+</header>
+
+<div class="download-banner">
+  <div class="container">
+    <div class="download-left">
+      <strong>🎁 Offre spéciale :</strong> 15 jours gratuits pour les 25 premiers inscrits — Profite maintenant.
     </div>
-  </header>
-
-  <main id="home" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>JEOAH'S Market Place</h1>
-        <p class="lead">Le shopping le plus intelligent — trouve les produits affiliés du monde entier au meilleur prix en un clic.</p>
-        <a class="button primary" id="get-started" href="#vendors">Commencer</a>
-      </div>
-      <div class="hero-ill">
-        <img src="/assets/hero-phone.png" alt="App preview" />
-      </div>
+    <div class="download-right">
+      <a class="download-btn" href="/JEOAHS_Maquette_Final.zip" download>⬇️ Télécharger la maquette</a>
     </div>
-  </main>
+  </div>
+</div>
 
-  <section id="vendors" class="container section">
-    <h2>Espace Vendeurs & Affiliés</h2>
-    <p>Inscription vendeurs / affiliés — créez votre boutique, collez votre lien affilié produit et l’IA génère titre, description et pub.</p>
-
-    <div class="card">
-      <form id="signupForm">
-        <label>Nom</label>
-        <input name="name" required />
-        <label>Email</label>
-        <input name="email" type="email" required />
-        <label>Mot de passe</label>
-        <input name="password" type="password" required />
-        <label>Répéter mot de passe</label>
-        <input name="password2" type="password" required />
-        <label>Lien d'affilié (ex: Amazon/Aliexpress)</label>
-        <input name="affiliateLink" placeholder="https://a.co/..." />
-        <button class="button" type="submit">S'inscrire</button>
-      </form>
+<main class="hero container">
+  <div class="hero-left">
+    <h1>Bienvenue sur JEOAH'S Market Place</h1>
+    <p class="lead">Le shopping le plus intelligent — la plateforme où vendre, acheter et partager devient un plaisir rentable.</p>
+    <div class="hero-ctas">
+      <a class="button primary" href="/inscription.html">Commencer maintenant</a>
+      <a class="button ghost" href="#features">Découvrir</a>
     </div>
+    <ul class="features-list">
+      <li>✓ Espace vendeur & affilié</li>
+      <li>✓ IA qui génère pubs & descriptions</li>
+      <li>✓ Publication automatique selon plan</li>
+      <li>✓ PWA installable — mobile & tablette</li>
+    </ul>
+  </div>
+  <div class="hero-right">
+    <img src="/assets/hero-phone.png" alt="preview" />
+    <div class="download-symbol" title="Installer l'app">⬇️<span>Installer</span></div>
+  </div>
+</main>
 
-    <h3>Import produit (manuel)</h3>
-    <p>Collez le lien d’un produit affilié et cliquez « Importer » — front-end montre l’aperçu. (L’automatisation totale nécessite back-end)</p>
-    <div class="card">
-      <input id="productLink" placeholder="Coller lien affilié (Amazon, AliExpress...)" />
-      <button id="importBtn" class="button">Importer</button>
-      <div id="preview"></div>
-    </div>
-  </section>
+<section id="features" class="container section">
+  <h2>Pourquoi JEOAH'S</h2>
+  <p>Plateforme complète pour vendre, promouvoir et centraliser l’affiliation.</p>
+  <div class="cards">
+    <div class="card"><h3>IA pour pubs</h3><p>Génère textes, images et mini-vidéos.</p></div>
+    <div class="card"><h3>Multi-affiliation</h3><p>Importe produits depuis plusieurs programmes affiliés.</p></div>
+    <div class="card"><h3>Dashboards</h3><p>Vendeur & affilié disposent d'interfaces dédiées.</p></div>
+  </div>
+</section>
 
-  <section id="pricing" class="container section">
-    <h2>Plans d’abonnement</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>Gratuit</h3>
-        <p>1 produit par an • Accès communautaire</p>
-      </div>
-      <div class="plan">
-        <h3>Mensuel Basic</h3>
-        <p>3 produits/jour auto • 1 réseau social auto</p>
-      </div>
-      <div class="plan">
-        <h3>Premium</h3>
-        <p>10 produits/jour auto • 3 réseaux auto • promos</p>
-      </div>
-      <div class="plan">
-        <h3>VIP Illimité</h3>
-        <p>Publier illimité • Tous réseaux • Assistance prioritaire</p>
-      </div>
-    </div>
-  </section>
+<footer class="site-footer container">
+  <div>
+    <h4>Contact</h4>
+    <p>Email: <a href="mailto:jeoahs1@gmail.com">jeoahs1@gmail.com</a></p>
+  </div>
+  <div>
+    <h4>Suivez-nous</h4>
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a> ·
+    <a href="https://www.instagram.com/jeoahsmarketplace" target="_blank">Instagram</a> ·
+    <a href="https://tiktok.com/@jeoahs1" target="_blank">TikTok</a> ·
+    <a href="https://www.youtube.com/@jeoahs1" target="_blank">YouTube</a>
+  </div>
+  <small>© JEOAH'S Market Place — Propriétaire : Neyslyne</small>
+</footer>
 
-  <section id="help" class="container section">
-    <h2>FAQ & Support</h2>
-    <p>Chat 24/7 (Ney), FAQ, politique de confidentialité, conditions.</p>
-  </section>
-
-  <footer id="contact" class="site-footer container">
-    <div>
-      <h4>Contact</h4>
-      <p>Email: <a href="mailto:jeoahs1@gmail.com">jeoahs1@gmail.com</a></p>
-    </div>
-    <div>
-      <h4>Suivez-nous</h4>
-      <a href="https://tiktok.com/@jeoahs1" target="_blank">TikTok</a> ·
-      <a href="https://www.youtube.com/@jeoahs1" target="_blank">YouTube</a> ·
-      <a href="https://www.instagram.com/jeoahsmarketplace" target="_blank">Instagram</a>
-    </div>
-    <small>© JEOAH'S Market Place</small>
-  </footer>
-
-  <script>
-    document.getElementById('importBtn').addEventListener('click', async () => {
-      const url = document.getElementById('productLink').value.trim();
-      const preview = document.getElementById('preview');
-      if(!url){ preview.innerText='Collez un lien.'; return; }
-      preview.innerHTML = '<p>Prévisualisation (demo) pour : '+url+'</p><p>Image et titre générés automatiquement (version demo).</p>';
-    });
-
-    document.getElementById('signupForm').addEventListener('submit', e => {
-      e.preventDefault();
-      alert('Merci ! Inscription reçue (demo). Un compte venduer sera activé après validation.');
-    });
-
-    let deferredPrompt;
-    window.addEventListener('beforeinstallprompt', (e) => {
-      e.preventDefault();
-      deferredPrompt = e;
-    });
-  </script>
+<script src="/app.js"></script>
 </body>
 </html>
